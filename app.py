@@ -27,15 +27,5 @@ def echo(input: Input):
     return {input.x1, input.x2, input.x3, input.x4}
 
 if __name__=='__main__':
-    proc = Process(target=uvicorn.run,
-                        args=(fast_app,),
-                        kwargs={
-                            "host": "127.0.0.1",
-                            "port": 8080,
-                            "log_level": "info"},
-                        daemon=True)
-    proc.start()
-    print("started")
-    while True:
-        sleep(5)
+    uvicorn.run(fast_app, host="127.0.0.1", port=8080, log_level="debug")
     
