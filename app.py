@@ -22,10 +22,14 @@ class Input(BaseModel):
 def get_time():
     return datetime.now()
 
+@fast_app.get("/")
+def get_status():
+    return "OK"
+
 @fast_app.post("/echo")
 def echo(input: Input):
     return {input.x1, input.x2, input.x3, input.x4}
 
 if __name__=='__main__':
-    uvicorn.run(fast_app, host="::", port=8080, log_level="debug")
+    uvicorn.run(fast_app, host="0.0.0.0", port=8080, log_level="debug")
     
