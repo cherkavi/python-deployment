@@ -6,7 +6,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 
 # Create a FastAPI app
-app = FastAPI()
+fast_app = FastAPI()
 
 # Define the input schema for the endpoint
 class Input(BaseModel):
